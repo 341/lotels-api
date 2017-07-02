@@ -20,7 +20,8 @@ testem.log
 config/.env
 config/.env-home
 config/.env.beta
-
+.idea/workspace.xml
+/.idea
 
 
 .DS_Store
