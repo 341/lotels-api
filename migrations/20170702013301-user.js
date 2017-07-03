@@ -12,21 +12,33 @@ module.exports = {
                 type: Sequelize.STRING,
                 unique: true
             },
+            first_name: {
+                type: Sequelize.STRING
+            },
+            last_name: {
+                type: Sequelize.STRING
+            },
+            type: {
+                type: Sequelize.INTEGER
+            },
+            status: {
+                type: Sequelize.INTEGER
+            },
             email: {
                 type: Sequelize.STRING,
                 validate: {
                     isEmail: true,
                 }
             },
-            createdAt: {
+            created_at: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            updatedAt: {
+            updated_at: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            HotelId: {
+            hotel_id: {
                 type: Sequelize.INTEGER,
                 onDelete: "CASCADE",
                 allowNull: true,

@@ -4,9 +4,9 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING
   }, {
     classMethods: {
-      // associate: function(models) {
-      //     Hotel.belongsToMany(models.User);
-      // }
+        associate: function (models) {
+            Hotel.belongsToMany(models.User);
+        }
     }
   });
   return hotel;
