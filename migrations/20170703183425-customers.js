@@ -1,57 +1,49 @@
 'use strict';
 
 module.exports = {
-  up: function (queryInterface, Sequelize) {
-      return queryInterface.createTable('customers', {
-          id: {
-              allowNull: false,
-              autoIncrement: true,
-              primaryKey: true,
-              type: Sequelize.INTEGER
-          },
-          username: {
-              type: Sequelize.STRING,
-              unique: true
-          },
-          first_name: {
-              type: Sequelize.STRING
-          },
-          last_name: {
-              type: Sequelize.STRING
-          },
-          type: {
-              type: Sequelize.INTEGER
-          },
-          status: {
-              type: Sequelize.INTEGER
-          },
-          email: {
-              type: Sequelize.STRING,
-              validate: {
-                  isEmail: true,
-              }
-          },
-          created_at: {
-              allowNull: false,
-              type: Sequelize.DATE
-          },
-          updated_at: {
-              allowNull: false,
-              type: Sequelize.DATE
-          },
-          user_id: {
-              type: Sequelize.INTEGER,
-              onDelete: "CASCADE",
-              allowNull: true,
-              references: {
-                  model: 'users',
-                  key: 'id'
-              }
-          }
-      });
-  },
+    up: function (queryInterface, Sequelize) {
+        return queryInterface.createTable('customers', {
+            id: {
+                allowNull: false,
+                autoIncrement: true,
+                primaryKey: true,
+                type: Sequelize.INTEGER
+            },
+            address: {
+                type: Sequelize.STRING,
+                unique: true
+            },
+            city: {
+                type: Sequelize.STRING
+            },
+            country: {
+                type: Sequelize.STRING
+            },
+            birthday: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            created_at: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            updated_at: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            user_id: {
+                type: Sequelize.INTEGER,
+                onDelete: "CASCADE",
+                allowNull: true,
+                references: {
+                    model: 'users',
+                    key: 'id'
+                }
+            }
+        });
+    },
 
-  down: function (queryInterface, Sequelize) {
-      return queryInterface.dropTable('customers');
-  }
+    down: function (queryInterface, Sequelize) {
+        return queryInterface.dropTable('customers');
+    }
 };

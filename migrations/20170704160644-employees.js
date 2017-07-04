@@ -2,7 +2,7 @@
 
 module.exports = {
     up: function (queryInterface, Sequelize) {
-        return queryInterface.createTable('managers', {
+        return queryInterface.createTable('employees', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -10,8 +10,7 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             address: {
-                type: Sequelize.STRING,
-                unique: true
+                type: Sequelize.STRING
             },
             city: {
                 type: Sequelize.STRING
@@ -20,7 +19,6 @@ module.exports = {
                 type: Sequelize.STRING
             },
             birthday: {
-                allowNull: false,
                 type: Sequelize.DATE
             },
             created_at: {
@@ -34,7 +32,7 @@ module.exports = {
             user_id: {
                 type: Sequelize.INTEGER,
                 onDelete: "CASCADE",
-                allowNull: true,
+                allowNull: false,
                 references: {
                     model: 'users',
                     key: 'id'
@@ -44,6 +42,6 @@ module.exports = {
     },
 
     down: function (queryInterface, Sequelize) {
-        return queryInterface.dropTable('managers');
+        return queryInterface.dropTable('employees');
     }
 };

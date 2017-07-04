@@ -2,46 +2,45 @@
 
 module.exports = {
     up: function (queryInterface, Sequelize) {
-        return queryInterface.createTable('rooms', {
+        return queryInterface.createTable('reservations', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            room_id: {
-                type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+            start:{
                 allowNull: false,
-                references: {
-                    model: 'rooms',
-                    key: 'id'
-                }
+                type: Sequelize.DATE
             },
-            type_id: {
-                type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+            end:{
                 allowNull: false,
-                references: {
-                    model: 'room_types',
-                    key: 'id'
-                }
+                type: Sequelize.DATE
             },
-            location_id: {
-                type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
-                allowNull: false,
-                references: {
-                    model: 'facility_locations',
-                    key: 'id'
-                }
-            },
-            user_id: {
+            employee_id: {
                 type: Sequelize.INTEGER,
                 onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'users',
+                    model: 'employees',
+                    key: 'id'
+                }
+            },
+            customer_id: {
+                type: Sequelize.INTEGER,
+                onDelete: "CASCADE",
+                allowNull: true,
+                references: {
+                    model: 'customers',
+                    key: 'id'
+                }
+            },
+            room_id: {
+                type: Sequelize.INTEGER,
+                onDelete: "CASCADE",
+                allowNull: true,
+                references: {
+                    model: 'rooms',
                     key: 'id'
                 }
             }
@@ -49,6 +48,6 @@ module.exports = {
     },
 
     down: function (queryInterface, Sequelize) {
-        return queryInterface.dropTable('rooms');
+        return queryInterface.dropTable('reservations');
     }
 };

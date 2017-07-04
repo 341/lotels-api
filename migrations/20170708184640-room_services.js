@@ -2,46 +2,37 @@
 
 module.exports = {
     up: function (queryInterface, Sequelize) {
-        return queryInterface.createTable('rooms', {
+        return queryInterface.createTable('room_services', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            room_id: {
-                type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
-                allowNull: false,
-                references: {
-                    model: 'rooms',
-                    key: 'id'
-                }
-            },
-            type_id: {
-                type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
-                allowNull: false,
-                references: {
-                    model: 'room_types',
-                    key: 'id'
-                }
-            },
-            location_id: {
-                type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
-                allowNull: false,
-                references: {
-                    model: 'facility_locations',
-                    key: 'id'
-                }
-            },
-            user_id: {
+            service_id: {
                 type: Sequelize.INTEGER,
                 onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'users',
+                    model: 'services',
+                    key: 'id'
+                }
+            },
+            rs_id: {
+                type: Sequelize.INTEGER,
+                onDelete: "CASCADE",
+                allowNull: true,
+                references: {
+                    model: 'reservations',
+                    key: 'id'
+                }
+            },
+            room_id: {
+                type: Sequelize.INTEGER,
+                onDelete: "CASCADE",
+                allowNull: true,
+                references: {
+                    model: 'rooms',
                     key: 'id'
                 }
             }
@@ -49,6 +40,6 @@ module.exports = {
     },
 
     down: function (queryInterface, Sequelize) {
-        return queryInterface.dropTable('rooms');
+        return queryInterface.dropTable('room_services');
     }
 };

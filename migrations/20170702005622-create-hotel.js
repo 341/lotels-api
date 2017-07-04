@@ -13,9 +13,12 @@ module.exports = {
                 unique: true
             },
             address: {
+                type: Sequelize.STRING
+            },
+            email: {
                 type: Sequelize.STRING,
                 validate: {
-                    isEmail: true,
+                    isEmail: true
                 }
             },
             created_at: {
