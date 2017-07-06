@@ -15,30 +15,12 @@ module.exports = {
             end:{
                 type: Sequelize.DATE
             },
-            employee_id: {
+            reservation_id: {
                 type: Sequelize.INTEGER,
                 onDelete: "CASCADE",
                 allowNull: true,
                 references: {
                     model: 'reservations',
-                    key: 'id'
-                }
-            },
-            customer_id: {
-                type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
-                allowNull: true,
-                references: {
-                    model: 'reservations',
-                    key: 'id'
-                }
-            },
-            room_id: {
-                type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
-                allowNull: true,
-                references: {
-                    model: 'rooms',
                     key: 'id'
                 }
             }

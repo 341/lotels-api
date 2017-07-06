@@ -49,16 +49,17 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false,
 			field: 'updated_at'
 		},
-		hotelId: {
+		facilityId: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true,
 			references: {
-				model: 'hotels',
+				model: 'facilities',
 				key: 'id'
 			},
 			field: 'hotel_id'
 		}
 	}, {
-		tableName: 'users'
+		tableName: 'users',
+        underscored: true
 	});
 };

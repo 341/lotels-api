@@ -1,7 +1,7 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('admins', {
+	var Admins = sequelize.define('admins', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
@@ -44,14 +44,14 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false,
 			field: 'updated_at'
 		},
-		hotelId: {
+		facilityId: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true,
 			references: {
-				model: 'hotels',
+				model: 'facilities',
 				key: 'id'
 			},
-			field: 'hotel_id'
+			field: 'facility_id'
 		},
 		userId: {
 			type: DataTypes.INTEGER(11),
@@ -63,6 +63,12 @@ module.exports = function(sequelize, DataTypes) {
 			field: 'user_id'
 		}
 	}, {
-		tableName: 'admins'
+        underscored: true,
+        tableName: 'admins'
 	});
+    Admins.associate = function (models) {
+        Admins.BelongsTo(models.users);
+    };
+
+    return Admins;
 };

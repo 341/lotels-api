@@ -1,7 +1,7 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('roomTypes', {
+	var RoomTypes = sequelize.define('roomTypes', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
@@ -23,4 +23,10 @@ module.exports = function(sequelize, DataTypes) {
 	}, {
 		tableName: 'room_types'
 	});
+
+    RoomTypes.associate = function (models) {
+        RoomTypes.BelongsTo(models.rooms);
+    };
+
+    return RoomTypes;
 };

@@ -1,22 +1,13 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('rooms', {
+	var Rooms = sequelize.define('rooms', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
 			autoIncrement: true,
 			field: 'id'
-		},
-		roomId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: false,
-			references: {
-				model: 'rooms',
-				key: 'id'
-			},
-			field: 'room_id'
 		},
 		typeId: {
 			type: DataTypes.INTEGER(11),
@@ -36,16 +27,25 @@ module.exports = function(sequelize, DataTypes) {
 			},
 			field: 'location_id'
 		},
-		userId: {
+        facilityId: {
 			type: DataTypes.INTEGER(11),
-			allowNull: true,
+			allowNull: false,
 			references: {
-				model: 'users',
+				model: 'facilities',
 				key: 'id'
 			},
-			field: 'user_id'
+			field: 'facility_id'
 		}
 	}, {
-		tableName: 'rooms'
+		tableName: 'rooms',
+        underscored: true
 	});
+
+    Rooms.associate = function (models) {
+        Rooms.BelongsTo(models.facilities);
+        Rooms.hasOne(models.roomTypes);
+        Rooms.belongsTo(models.facilityLocations);
+    };
+
+    return Rooms;
 };

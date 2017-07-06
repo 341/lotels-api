@@ -1,7 +1,7 @@
 /* jshint indent: 1 */
 
 module.exports = function (sequelize, DataTypes) {
-    return sequelize.define('facilityLocations', {
+    var FacilityLocation = sequelize.define('facilityLocations', {
             id: {
                 type: DataTypes.INTEGER(11),
                 allowNull: false,
@@ -28,13 +28,10 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         {
-            tableName: 'facility_locations'
-        },
-        {
-            classMethods: {
-                // associate: function(models) {
-                //     Hotel.belongsToMany(models.User);
-                // }
-            }
+            tableName: 'facility_locations',
+            underscored: true
         });
+
+
+    return FacilityLocation;
 };

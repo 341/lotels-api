@@ -1,7 +1,7 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('roomServices', {
+	var RoomServices = sequelize.define('roomServices', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
@@ -18,14 +18,14 @@ module.exports = function(sequelize, DataTypes) {
 			},
 			field: 'service_id'
 		},
-		rsId: {
+		reservationId: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true,
 			references: {
 				model: 'reservations',
 				key: 'id'
 			},
-			field: 'rs_id'
+			field: 'reservation_id'
 		},
 		roomId: {
 			type: DataTypes.INTEGER(11),
@@ -37,6 +37,15 @@ module.exports = function(sequelize, DataTypes) {
 			field: 'room_id'
 		}
 	}, {
-		tableName: 'room_services'
+		tableName: 'room_services',
+        underscored: true
 	});
+
+    RoomServices.associate = function (models) {
+        RoomServices.BelongsTo(models.service);
+        RoomServices.BelongsTo(models.reservationDays);
+        RoomServices.BelongsTo(models.rooms);
+    };
+
+    return RoomServices;
 };

@@ -1,7 +1,7 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('reservationDays', {
+	var ReservationDays = sequelize.define('reservationDays', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.INTEGER(11),
 			allowNull: true,
 			references: {
-				model: 'reservations',
+				model: 'employees',
 				key: 'id'
 			},
 			field: 'employee_id'
@@ -32,7 +32,7 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.INTEGER(11),
 			allowNull: true,
 			references: {
-				model: 'reservations',
+				model: 'customers',
 				key: 'id'
 			},
 			field: 'customer_id'
@@ -47,6 +47,15 @@ module.exports = function(sequelize, DataTypes) {
 			field: 'room_id'
 		}
 	}, {
-		tableName: 'reservation_days'
+		tableName: 'reservation_days',
+        underscored: true
 	});
+
+    ReservationDays.associate = function (models) {
+        ReservationDays.BelongsTo(models.rooms);
+        ReservationDays.BelongsTo(models.employees);
+        ReservationDays.BelongsTo(models.customers);
+    };
+
+    return ReservationDays;
 };

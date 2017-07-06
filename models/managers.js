@@ -1,7 +1,7 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('managers', {
+	var Managers = sequelize.define('managers', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
@@ -54,6 +54,13 @@ module.exports = function(sequelize, DataTypes) {
 			field: 'user_id'
 		}
 	}, {
-		tableName: 'managers'
+		tableName: 'managers',
+        underscored: true
 	});
+
+    Managers.associate = function (models) {
+        Managers.BelongsTo(models.users);
+    };
+
+    return Managers;
 };

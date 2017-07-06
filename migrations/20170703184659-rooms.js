@@ -9,15 +9,6 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            room_id: {
-                type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
-                allowNull: false,
-                references: {
-                    model: 'rooms',
-                    key: 'id'
-                }
-            },
             type_id: {
                 type: Sequelize.INTEGER,
                 onDelete: "CASCADE",
@@ -36,12 +27,12 @@ module.exports = {
                     key: 'id'
                 }
             },
-            user_id: {
+            facility_id: {
                 type: Sequelize.INTEGER,
                 onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'users',
+                    model: 'facilities',
                     key: 'id'
                 }
             }

@@ -32,12 +32,12 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            hotel_id: {
+            facility_id: {
                 type: Sequelize.INTEGER,
                 onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'hotels',
+                    model: 'facilities',
                     key: 'id'
                 }
             },

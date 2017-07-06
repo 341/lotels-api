@@ -31,6 +31,7 @@ module.exports = function(sequelize, DataTypes) {
 			field: 'price'
 		}
 	}, {
-		tableName: 'services'
+		tableName: 'services',
+        underscored: true
 	});
 };

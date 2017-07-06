@@ -1,7 +1,7 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('facilities', {
+	var Facilities = sequelize.define('facilities', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
@@ -30,6 +30,18 @@ module.exports = function(sequelize, DataTypes) {
 			field: 'type_id'
 		}
 	}, {
+        underscored: true,
 		tableName: 'facilities'
 	});
+
+    Facilities.associate = function (models) {
+        Facilities.hasMany(models.rooms);
+        Facilities.hasMany(models.customers);
+        Facilities.hasMany(models.admins);
+        Facilities.hasMany(models.employees);
+        Facilities.hasMany(models.managers);
+        Facilities.hasOne(models.FacilityTypes);
+    };
+
+    return Facilities;
 };
