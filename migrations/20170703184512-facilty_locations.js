@@ -14,7 +14,7 @@ module.exports = {
                 unique: true
             },
             locations: {
-                type: Sequelize.ENUM(1,2),
+                type: Sequelize.ENUM('1','2'),
                 unique: true
             },
             description: {

@@ -12,7 +12,16 @@ module.exports = {
                 type: Sequelize.STRING,
                 unique: true
             },
-            address: {
+            street_address: {
+                type: Sequelize.STRING
+            },
+            city: {
+                type: Sequelize.STRING
+            },
+            zip_code: {
+                type: Sequelize.STRING
+            },
+            country: {
                 type: Sequelize.STRING
             },
             email: {
