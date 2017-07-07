@@ -2,20 +2,20 @@
 
 module.exports = {
     up: function (queryInterface, Sequelize) {
-        return queryInterface.createTable('admins', {
+        return queryInterface.createTable('Admins', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            street_address: {
+            streetAddress: {
                 type: Sequelize.STRING
             },
             city: {
                 type: Sequelize.STRING
             },
-            zip_code: {
+            zipCode: {
                 type: Sequelize.STRING
             },
             country: {
@@ -24,29 +24,29 @@ module.exports = {
             birthday: {
                 type: Sequelize.DATE
             },
-            created_at: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            updated_at: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            facility_id: {
+            facilityId: {
                 type: Sequelize.INTEGER,
                 onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'facilities',
+                    model: 'Facilities',
                     key: 'id'
                 }
             },
             user_id: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+                // onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'users',
+                    model: 'Users',
                     key: 'id'
                 }
             }
@@ -54,6 +54,6 @@ module.exports = {
     },
 
     down: function (queryInterface, Sequelize) {
-        return queryInterface.dropTable('admins');
+        return queryInterface.dropTable('Admins');
     }
 };

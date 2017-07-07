@@ -2,37 +2,37 @@
 
 module.exports = {
     up: function (queryInterface, Sequelize) {
-        return queryInterface.createTable('room_services', {
+        return queryInterface.createTable('RoomServices', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            service_id: {
+            serviceId: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+                //onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'services',
+                    model: 'Services',
                     key: 'id'
                 }
             },
-            reservation_id: {
+            reservationId: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+                //onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'reservations',
+                    model: 'Reservations',
                     key: 'id'
                 }
             },
-            room_id: {
+            roomIid: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+               // onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'rooms',
+                    model: 'Rooms',
                     key: 'id'
                 }
             }
@@ -40,6 +40,6 @@ module.exports = {
     },
 
     down: function (queryInterface, Sequelize) {
-        return queryInterface.dropTable('room_services');
+        return queryInterface.dropTable('RoomServices');
     }
 };

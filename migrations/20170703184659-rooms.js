@@ -9,30 +9,30 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            type_id: {
+            typeID: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+                //onDelete: "CASCADE",
                 allowNull: false,
                 references: {
-                    model: 'room_types',
+                    model: 'RoomTypes',
                     key: 'id'
                 }
             },
-            location_id: {
+            locationId: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+                //onDelete: "CASCADE",
                 allowNull: false,
                 references: {
-                    model: 'facility_locations',
+                    model: 'FacilityLocation',
                     key: 'id'
                 }
             },
-            facility_id: {
+            facilityId: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+                //onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'facilities',
+                    model: 'Facilities',
                     key: 'id'
                 }
             }

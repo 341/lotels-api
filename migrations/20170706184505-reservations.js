@@ -2,7 +2,7 @@
 
 module.exports = {
     up: function (queryInterface, Sequelize) {
-        return queryInterface.createTable('reservations', {
+        return queryInterface.createTable('Reservations', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -17,30 +17,30 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            employee_id: {
+            employeeId: {
                 type: Sequelize.INTEGER,
                 onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'employees',
+                    model: 'Employees',
                     key: 'id'
                 }
             },
-            customer_id: {
+            customerId: {
                 type: Sequelize.INTEGER,
                 onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'customers',
+                    model: 'Customers',
                     key: 'id'
                 }
             },
-            room_id: {
+            roomId: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+                //onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'rooms',
+                    model: 'Rooms',
                     key: 'id'
                 }
             }
@@ -48,6 +48,6 @@ module.exports = {
     },
 
     down: function (queryInterface, Sequelize) {
-        return queryInterface.dropTable('reservations');
+        return queryInterface.dropTable('Reservations');
     }
 };

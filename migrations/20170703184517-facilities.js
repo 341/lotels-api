@@ -2,7 +2,7 @@
 
 module.exports = {
     up: function (queryInterface, Sequelize) {
-        return queryInterface.createTable('facilities', {
+        return queryInterface.createTable('Facilities', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -16,12 +16,12 @@ module.exports = {
             description: {
                 type: Sequelize.STRING
             },
-            type_id: {
+            typeId: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+                //onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'facility_types',
+                    model: 'FacilityTypes',
                     key: 'id'
                 }
             }
@@ -29,6 +29,6 @@ module.exports = {
     },
 
     down: function (queryInterface, Sequelize) {
-        return queryInterface.dropTable('facilities');
+        return queryInterface.dropTable('Facilities');
     }
 };

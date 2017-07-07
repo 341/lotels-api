@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
     up: function (queryInterface, Sequelize) {
-        return queryInterface.createTable('users', {
+        return queryInterface.createTable('Users', {
             id: {
                 allowNull: false,
                 primaryKey: true,
@@ -12,11 +12,11 @@ module.exports = {
                 unique: true,
                 allowNull: false,
             },
-            first_name: {
+            firstName: {
                 type: Sequelize.STRING,
                 allowNull: false,
             },
-            last_name: {
+            lastName: {
                 type: Sequelize.STRING,
                 allowNull: false,
             },
@@ -34,26 +34,30 @@ module.exports = {
                     isEmail: true,
                 }
             },
-            created_at: {
+            createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            updated_at: {
+            updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            facility_id: {
+            facilityId: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
                 allowNull: true,
+                //defaultValue: null,
+                // onDelete: "CASCADE",
+                // onUpdate: 'cascade',
                 references: {
-                    model: 'facilities',
+                    model: 'Facilities',
                     key: 'id'
                 }
             }
+        },{
+            //engine: 'MYISAM',
         });
     },
     down: function (queryInterface, Sequelize) {
-        return queryInterface.dropTable('users');
+        return queryInterface.dropTable('Users');
     }
 };

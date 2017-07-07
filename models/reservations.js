@@ -21,6 +21,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         employeeId: {
             type: DataTypes.INTEGER(11),
+            onDelete: "CASCADE",
             allowNull: true,
             references: {
                 model: 'employees',
@@ -30,6 +31,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         customerId: {
             type: DataTypes.INTEGER(11),
+            onDelete: "CASCADE",
             allowNull: true,
             references: {
                 model: 'customers',
@@ -39,6 +41,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         roomId: {
             type: DataTypes.INTEGER(11),
+            onDelete: "CASCADE",
             allowNull: true,
             references: {
                 model: 'rooms',

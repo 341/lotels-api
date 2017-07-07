@@ -2,7 +2,7 @@
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-      return queryInterface.createTable('room_types', {
+      return queryInterface.createTable('RoomTypes', {
           id: {
               allowNull: false,
               autoIncrement: true,
@@ -20,6 +20,6 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
-      return queryInterface.dropTable('customers');
+      return queryInterface.dropTable('RoomTypes');
   }
 };

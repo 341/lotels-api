@@ -2,7 +2,7 @@
 
 module.exports = {
     up: function (queryInterface, Sequelize) {
-        return queryInterface.createTable('reservation_days', {
+        return queryInterface.createTable('ReservationDays', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -15,12 +15,12 @@ module.exports = {
             end:{
                 type: Sequelize.DATE
             },
-            reservation_id: {
+            reservationId: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+                //onDelete: "CASCADE",
                 allowNull: true,
                 references: {
-                    model: 'reservations',
+                    model: 'Reservations',
                     key: 'id'
                 }
             }
@@ -28,6 +28,6 @@ module.exports = {
     },
 
     down: function (queryInterface, Sequelize) {
-        return queryInterface.dropTable('room_services');
+        return queryInterface.dropTable('ReservationDays');
     }
 };

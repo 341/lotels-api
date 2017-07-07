@@ -2,7 +2,7 @@
 
 module.exports = {
     up: function (queryInterface, Sequelize) {
-        return queryInterface.createTable('employees', {
+        return queryInterface.createTable('Employees', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -32,12 +32,12 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            user_id: {
+            userId: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+                //onDelete: "CASCADE",
                 allowNull: false,
                 references: {
-                    model: 'users',
+                    model: 'Users',
                     key: 'id'
                 }
             }
@@ -45,6 +45,6 @@ module.exports = {
     },
 
     down: function (queryInterface, Sequelize) {
-        return queryInterface.dropTable('employees');
+        return queryInterface.dropTable('Employees');
     }
 };
