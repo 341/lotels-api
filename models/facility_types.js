@@ -1,7 +1,7 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	var facilityTypes = sequelize.define('facilityTypes', {
+	var FacilityTypes = sequelize.define('facility_types', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
@@ -25,9 +25,9 @@ module.exports = function(sequelize, DataTypes) {
         underscored: true
 	});
 
-    facilityTypes.associate = function (models) {
-        facilityTypes.belongsToMany(models.facilities);
-    };
+    // FacilityTypes.associate = function (models) {
+    //     FacilityTypes.belongsToMany(models.Facilities);
+    // };
 
-    return facilityTypes;
+    return FacilityTypes;
 };

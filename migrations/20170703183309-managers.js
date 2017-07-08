@@ -9,13 +9,13 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            streetAddress: {
+            street_address: {
                 type: Sequelize.STRING
             },
             city: {
                 type: Sequelize.STRING
             },
-            zipCode: {
+            zip_code: {
                 type: Sequelize.STRING
             },
             country: {
@@ -25,18 +25,19 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            createdAt: {
+            created_at: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            updatedAt: {
+            updated_at: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            userId: {
+            user_id: {
                 type: Sequelize.INTEGER,
-               // onDelete: "CASCADE",
-                allowNull: false,
+                onUpdate: 'cascade',
+                onDelete: 'cascade',
+                allowNull: true,
                 references: {
                     model: 'Users',
                     key: 'id'

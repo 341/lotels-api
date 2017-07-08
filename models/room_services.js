@@ -1,51 +1,30 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	var RoomServices = sequelize.define('roomServices', {
+	var RoomServices = sequelize.define('room_services', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true,
-			field: 'id'
+			autoIncrement: true
 		},
-		serviceId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: true,
-			references: {
-				model: 'services',
-				key: 'id'
-			},
-			field: 'service_id'
+		created_at: {
+			type: DataTypes.DATE,
+			allowNull: false
 		},
-		reservationId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: true,
-			references: {
-				model: 'reservations',
-				key: 'id'
-			},
-			field: 'reservation_id'
-		},
-		roomId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: true,
-			references: {
-				model: 'rooms',
-				key: 'id'
-			},
-			field: 'room_id'
+		updated_at: {
+			type: DataTypes.DATE,
+			allowNull: false
 		}
 	}, {
-		tableName: 'room_services',
-        underscored: true
+		tableName: 'room_services'
 	});
 
-    RoomServices.associate = function (models) {
-        RoomServices.BelongsTo(models.service);
-        RoomServices.BelongsTo(models.reservationDays);
-        RoomServices.BelongsTo(models.rooms);
-    };
+    // RoomServices.associate = function (models) {
+    //     RoomServices.belongsTo(models.Rooms);
+    //     RoomServices.belongsTo(models.Services);
+    //     RoomServices.belongsTo(models.Reservations);
+    // };
 
     return RoomServices;
 };

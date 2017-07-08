@@ -17,27 +17,38 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            employeeId: {
+            created_at: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            updated_at: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            employee_id: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+                onUpdate: 'cascade',
+                onDelete: 'cascade',
                 allowNull: true,
                 references: {
                     model: 'Employees',
                     key: 'id'
                 }
             },
-            customerId: {
+            customer_id: {
                 type: Sequelize.INTEGER,
-                onDelete: "CASCADE",
+                onUpdate: 'cascade',
+                onDelete: 'cascade',
                 allowNull: true,
                 references: {
                     model: 'Customers',
                     key: 'id'
                 }
             },
-            roomId: {
+            room_id: {
                 type: Sequelize.INTEGER,
-                //onDelete: "CASCADE",
+                onUpdate: 'cascade',
+                onDelete: 'cascade',
                 allowNull: true,
                 references: {
                     model: 'Rooms',

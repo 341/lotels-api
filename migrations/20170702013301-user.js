@@ -12,11 +12,11 @@ module.exports = {
                 unique: true,
                 allowNull: false,
             },
-            firstName: {
+            first_name: {
                 type: Sequelize.STRING,
                 allowNull: false,
             },
-            lastName: {
+            last_name: {
                 type: Sequelize.STRING,
                 allowNull: false,
             },
@@ -34,27 +34,25 @@ module.exports = {
                     isEmail: true,
                 }
             },
-            createdAt: {
+            created_at: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            updatedAt: {
+            updated_at: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            facilityId: {
-                type: Sequelize.INTEGER,
-                allowNull: true,
-                //defaultValue: null,
-                // onDelete: "CASCADE",
-                // onUpdate: 'cascade',
-                references: {
-                    model: 'Facilities',
-                    key: 'id'
-                }
-            }
-        },{
-            //engine: 'MYISAM',
+            // facility_id: {
+            //     type: Sequelize.INTEGER,
+            //     allowNull: true,
+            //     defaultValue: null,
+            //     onUpdate: 'cascade',
+            //     onDelete: 'cascade',
+            //     references: {
+            //         model: 'facilities',
+            //         key: 'id'
+            //     }
+            // }
         });
     },
     down: function (queryInterface, Sequelize) {

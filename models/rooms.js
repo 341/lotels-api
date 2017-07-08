@@ -1,51 +1,28 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	var Rooms = sequelize.define('rooms', {
+	var Rooms =  sequelize.define('rooms', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true,
-			field: 'id'
+			autoIncrement: true
 		},
-		typeId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: false,
-			references: {
-				model: 'room_types',
-				key: 'id'
-			},
-			field: 'type_id'
+		created_at: {
+			type: DataTypes.DATE,
+			allowNull: false
 		},
-		locationId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: false,
-			references: {
-				model: 'facility_locations',
-				key: 'id'
-			},
-			field: 'location_id'
-		},
-        facilityId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: false,
-			references: {
-				model: 'facilities',
-				key: 'id'
-			},
-			field: 'facility_id'
+		updated_at: {
+			type: DataTypes.DATE,
+			allowNull: false
 		}
 	}, {
-		tableName: 'rooms',
-        underscored: true
+		tableName: 'rooms'
 	});
 
-    Rooms.associate = function (models) {
-        Rooms.BelongsTo(models.facilities);
-        Rooms.hasOne(models.roomTypes);
-        Rooms.belongsTo(models.facilityLocations);
-    };
+    // Rooms.associations = function (models) {
+    //     Rooms.belongsTo(models.Facilties);
+    // }
 
     return Rooms;
 };

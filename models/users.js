@@ -1,65 +1,46 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('users', {
+	return sequelize.define('Users', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
-			primaryKey: true,
-			field: 'id'
+			primaryKey: true
 		},
 		username: {
 			type: DataTypes.STRING(255),
 			allowNull: false,
-			unique: true,
-			field: 'username'
+			unique: true
 		},
-		firstName: {
+		first_name: {
 			type: DataTypes.STRING(255),
-			allowNull: false,
-			field: 'first_name'
+			allowNull: false
 		},
-		lastName: {
+		last_name: {
 			type: DataTypes.STRING(255),
-			allowNull: false,
-			field: 'last_name'
+			allowNull: false
 		},
 		type: {
 			type: DataTypes.INTEGER(11),
-			allowNull: false,
-			field: 'type'
+			allowNull: false
 		},
 		status: {
 			type: DataTypes.INTEGER(11),
-			allowNull: false,
-			field: 'status'
+			allowNull: false
 		},
 		email: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'email'
+			allowNull: true
 		},
-		createdAt: {
+		created_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'created_at'
+			allowNull: false
 		},
-		updatedAt: {
+		updated_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'updated_at'
-		},
-		facilityId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: true,
-			references: {
-				model: 'facilities',
-				key: 'id'
-			},
-			field: 'hotel_id'
+			allowNull: false
 		}
 	}, {
-		tableName: 'users',
-        underscored: true
+		tableName: 'Users'
 	});
 };

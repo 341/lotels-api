@@ -6,62 +6,48 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true,
-			field: 'id'
+			autoIncrement: true
 		},
-		streetAddress: {
-			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'street_address'
-		},
-		city: {
-			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'city'
-		},
-		zipCode: {
-			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'zip_code'
-		},
+        treet_address: {
+            type: DataTypes.STRING(255),
+            allowNull: true
+        },
+        city: {
+            type: DataTypes.STRING(255),
+            allowNull: true
+        },
+        zip_code: {
+            type: DataTypes.STRING(255),
+            allowNull: true
+        },
 		country: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'country'
+			allowNull: true
 		},
 		birthday: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'birthday'
+			allowNull: false
 		},
-		createdAt: {
+		created_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'created_at'
+			allowNull: false
 		},
-		updatedAt: {
+		updated_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'updated_at'
-		},
-		userId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: true,
-			references: {
-				model: 'users',
-				key: 'id'
-			},
-			field: 'user_id'
+			allowNull: false
 		}
 	}, {
-        underscored: true,
 		tableName: 'customers'
 	});
 
-    Customers.associate = function (models) {
-        Customers.BelongsTo(models.users);
-    };
+    // Customers.associate = function (models) {
+    //     Customers.belongsTo(models.Users,{
+    //         onDelete: "CASCADE",
+    //         foreignKey: {
+    //             allowNull: false
+    //         }
+    //     });
+    // };
 
     return Customers;
-
 };

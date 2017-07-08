@@ -4,7 +4,16 @@
     "password": "root",
     "database": "lotels",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define": {
+      "engine": "InnoDB",
+      "underscored": "true",
+      "freezeTableName": "true",
+      "syncOnAssociation": "false",
+      "charset": "utf8",
+      "collate" : "utf8_general_ci",
+      "timestamps": "true"
+    }
   },
   "test": {
     "username": "root",

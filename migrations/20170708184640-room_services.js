@@ -9,27 +9,38 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            serviceId: {
+            created_at: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            updated_at: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            service_id: {
                 type: Sequelize.INTEGER,
-                //onDelete: "CASCADE",
+                onUpdate: 'cascade',
+                onDelete: 'cascade',
                 allowNull: true,
                 references: {
                     model: 'Services',
                     key: 'id'
                 }
             },
-            reservationId: {
+            reservation_id: {
                 type: Sequelize.INTEGER,
-                //onDelete: "CASCADE",
+                onUpdate: 'cascade',
+                onDelete: 'cascade',
                 allowNull: true,
                 references: {
                     model: 'Reservations',
                     key: 'id'
                 }
             },
-            roomIid: {
+            room_id: {
                 type: Sequelize.INTEGER,
-               // onDelete: "CASCADE",
+                onUpdate: 'cascade',
+                onDelete: 'cascade',
                 allowNull: true,
                 references: {
                     model: 'Rooms',

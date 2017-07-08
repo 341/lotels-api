@@ -15,9 +15,18 @@ module.exports = {
             end:{
                 type: Sequelize.DATE
             },
-            reservationId: {
+            created_at: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            updated_at: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            reservation_id: {
                 type: Sequelize.INTEGER,
-                //onDelete: "CASCADE",
+                onUpdate: 'cascade',
+                onDelete: 'cascade',
                 allowNull: true,
                 references: {
                     model: 'Reservations',

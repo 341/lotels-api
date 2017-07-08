@@ -1,66 +1,53 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	var Managers = sequelize.define('managers', {
+	var Manager = sequelize.define('managers', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true,
-			field: 'id'
+			autoIncrement: true
 		},
-		streetAddress: {
+		street_address: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'street_address'
+			allowNull: true
 		},
 		city: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'city'
+			allowNull: true
 		},
-		zipCode: {
+		zip_code: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'zip_code'
+			allowNull: true
 		},
 		country: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'country'
+			allowNull: true
 		},
 		birthday: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'birthday'
+			allowNull: false
 		},
-		createdAt: {
+		created_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'created_at'
+			allowNull: false
 		},
-		updatedAt: {
+		updated_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'updated_at'
-		},
-		userId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: true,
-			references: {
-				model: 'users',
-				key: 'id'
-			},
-			field: 'user_id'
+			allowNull: false
 		}
 	}, {
-		tableName: 'managers',
-        underscored: true
+		tableName: 'managers'
 	});
 
-    Managers.associate = function (models) {
-        Managers.BelongsTo(models.users);
-    };
+    // Manager.associate = function (models) {
+    //     Manager.belongsTo(models.Users,{
+    //         onDelete: "CASCADE",
+    //         foreignKey: {
+    //             allowNull: false
+    //         }
+    //     });
+    // };
 
-    return Managers;
+    return Manager;
 };

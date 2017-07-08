@@ -1,61 +1,36 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	var ReservationDays = sequelize.define('reservationDays', {
+	var reservationDays = sequelize.define('reservation_days', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true,
-			field: 'id'
+			autoIncrement: true
 		},
 		start: {
 			type: DataTypes.DATE,
-			allowNull: true,
-			field: 'start'
+			allowNull: true
 		},
 		end: {
 			type: DataTypes.DATE,
-			allowNull: true,
-			field: 'end'
+			allowNull: true
 		},
-		employeeId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: true,
-			references: {
-				model: 'employees',
-				key: 'id'
-			},
-			field: 'employee_id'
+		created_at: {
+			type: DataTypes.DATE,
+			allowNull: false
 		},
-		customerId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: true,
-			references: {
-				model: 'customers',
-				key: 'id'
-			},
-			field: 'customer_id'
-		},
-		roomId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: true,
-			references: {
-				model: 'rooms',
-				key: 'id'
-			},
-			field: 'room_id'
+		updated_at: {
+			type: DataTypes.DATE,
+			allowNull: false
 		}
 	}, {
-		tableName: 'reservation_days',
-        underscored: true
+		tableName: 'reservation_days'
 	});
 
-    ReservationDays.associate = function (models) {
-        ReservationDays.BelongsTo(models.rooms);
-        ReservationDays.BelongsTo(models.employees);
-        ReservationDays.BelongsTo(models.customers);
-    };
+    // reservationDays.associate = function (models) {
+    //     reservationDays.belongsTo(models.Reservations);
+    // };
 
-    return ReservationDays;
+    return reservationDays;
 };

@@ -2,34 +2,44 @@
 
 module.exports = {
     up: function (queryInterface, Sequelize) {
-        return queryInterface.createTable('rooms', {
+        return queryInterface.createTable('Rooms', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            typeID: {
+            created_at: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            updated_at: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            type_id: {
                 type: Sequelize.INTEGER,
-                //onDelete: "CASCADE",
+                onUpdate: 'cascade',
                 allowNull: false,
                 references: {
                     model: 'RoomTypes',
                     key: 'id'
                 }
             },
-            locationId: {
+            location_id: {
                 type: Sequelize.INTEGER,
-                //onDelete: "CASCADE",
+                onUpdate: 'cascade',
+                onDelete: 'cascade',
                 allowNull: false,
                 references: {
-                    model: 'FacilityLocation',
+                    model: 'FacilityLocations',
                     key: 'id'
                 }
             },
-            facilityId: {
+            facility_id: {
                 type: Sequelize.INTEGER,
-                //onDelete: "CASCADE",
+                onUpdate: 'cascade',
+                onDelete: 'cascade',
                 allowNull: true,
                 references: {
                     model: 'Facilities',
@@ -40,6 +50,6 @@ module.exports = {
     },
 
     down: function (queryInterface, Sequelize) {
-        return queryInterface.dropTable('rooms');
+        return queryInterface.dropTable('Rooms');
     }
 };

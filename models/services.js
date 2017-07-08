@@ -6,32 +6,34 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true,
-			field: 'id'
+			autoIncrement: true
 		},
 		name: {
 			type: DataTypes.STRING(255),
 			allowNull: true,
-			unique: true,
-			field: 'name'
+			unique: true
 		},
 		description: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'description'
+			allowNull: true
 		},
 		type: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'type'
+			allowNull: true
 		},
 		price: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'price'
+			allowNull: true
+		},
+		created_at: {
+			type: DataTypes.DATE,
+			allowNull: false
+		},
+		updated_at: {
+			type: DataTypes.DATE,
+			allowNull: false
 		}
 	}, {
-		tableName: 'services',
-        underscored: true
+		tableName: 'services'
 	});
 };
