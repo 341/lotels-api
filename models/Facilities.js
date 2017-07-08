@@ -1,7 +1,7 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	var FacilityTypes = sequelize.define('facility_types', {
+	return sequelize.define('facilities', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
@@ -19,15 +19,27 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING(255),
 			allowNull: true,
 			field: 'description'
+		},
+		createdAt: {
+			type: DataTypes.DATE,
+			allowNull: false,
+			field: 'created_at'
+		},
+		updatedAt: {
+			type: DataTypes.DATE,
+			allowNull: false,
+			field: 'updated_at'
+		},
+		typeId: {
+			type: DataTypes.INTEGER(11),
+			allowNull: true,
+			references: {
+				model: 'FacilityTypes',
+				key: 'id'
+			},
+			field: 'type_id'
 		}
 	}, {
-		tableName: 'facility_types',
-        underscored: true
+		tableName: 'Facilities'
 	});
-
-    // FacilityTypes.associate = function (models) {
-    //     FacilityTypes.belongsToMany(models.Facilities);
-    // };
-
-    return FacilityTypes;
 };

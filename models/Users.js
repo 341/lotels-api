@@ -1,44 +1,53 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('Users', {
+	return sequelize.define('users', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
-			primaryKey: true
+			primaryKey: true,
+			field: 'id'
 		},
 		username: {
 			type: DataTypes.STRING(255),
 			allowNull: false,
-			unique: true
+			unique: true,
+			field: 'username'
 		},
-		first_name: {
+		firstName: {
 			type: DataTypes.STRING(255),
-			allowNull: false
+			allowNull: false,
+			field: 'first_name'
 		},
-		last_name: {
+		lastName: {
 			type: DataTypes.STRING(255),
-			allowNull: false
+			allowNull: false,
+			field: 'last_name'
 		},
 		type: {
 			type: DataTypes.INTEGER(11),
-			allowNull: false
+			allowNull: false,
+			field: 'type'
 		},
 		status: {
 			type: DataTypes.INTEGER(11),
-			allowNull: false
+			allowNull: false,
+			field: 'status'
 		},
 		email: {
 			type: DataTypes.STRING(255),
-			allowNull: true
+			allowNull: true,
+			field: 'email'
 		},
-		created_at: {
+		createdAt: {
 			type: DataTypes.DATE,
-			allowNull: false
+			allowNull: false,
+			field: 'created_at'
 		},
-		updated_at: {
+		updatedAt: {
 			type: DataTypes.DATE,
-			allowNull: false
+			allowNull: false,
+			field: 'updated_at'
 		}
 	}, {
 		tableName: 'Users'

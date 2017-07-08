@@ -1,37 +1,36 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	var RoomTypes = sequelize.define('room_types', {
+	return sequelize.define('roomTypes', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true
+			autoIncrement: true,
+			field: 'id'
 		},
 		name: {
 			type: DataTypes.STRING(255),
 			allowNull: true,
-			unique: true
+			unique: true,
+			field: 'name'
 		},
 		description: {
 			type: DataTypes.STRING(255),
-			allowNull: true
+			allowNull: true,
+			field: 'description'
 		},
-		created_at: {
+		createdAt: {
 			type: DataTypes.DATE,
-			allowNull: false
+			allowNull: false,
+			field: 'created_at'
 		},
-		updated_at: {
+		updatedAt: {
 			type: DataTypes.DATE,
-			allowNull: false
+			allowNull: false,
+			field: 'updated_at'
 		}
 	}, {
-		tableName: 'room_types'
+		tableName: 'RoomTypes'
 	});
-
-    // RoomTypes.associations = function (models) {
-    //     RoomTypes.belongsTo(models.Rooms);
-    // }
-
-    return RoomTypes;
 };
