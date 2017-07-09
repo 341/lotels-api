@@ -1,43 +1,37 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('facilities', {
+	return sequelize.define('Facilities', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true,
-			field: 'id'
+			autoIncrement: true
 		},
 		name: {
 			type: DataTypes.STRING(255),
 			allowNull: true,
-			unique: true,
-			field: 'name'
+			unique: true
 		},
 		description: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'description'
+			allowNull: true
 		},
-		createdAt: {
+		created_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'created_at'
+			allowNull: false
 		},
-		updatedAt: {
+		updated_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'updated_at'
+			allowNull: false
 		},
-		typeId: {
+		type_id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true,
 			references: {
 				model: 'FacilityTypes',
 				key: 'id'
-			},
-			field: 'type_id'
+			}
 		}
 	}, {
 		tableName: 'Facilities'

@@ -5,41 +5,41 @@ module.exports = {
             id: {
                 allowNull: false,
                 primaryKey: true,
+                autoIncrement: true,
                 type: Sequelize.INTEGER
             },
             username: {
                 type: Sequelize.STRING,
-                unique: true,
-                allowNull: false,
+                allowNull: false
             },
             first_name: {
                 type: Sequelize.STRING,
-                allowNull: false,
+                allowNull: false
             },
             last_name: {
                 type: Sequelize.STRING,
-                allowNull: false,
+                allowNull: false
             },
             type: {
                 type: Sequelize.INTEGER,
-                allowNull: false,
+                allowNull: false
             },
             status: {
                 type: Sequelize.INTEGER,
-                allowNull: false,
+                allowNull: false
             },
             email: {
                 type: Sequelize.STRING,
                 validate: {
-                    isEmail: true,
+                    isEmail: true
                 }
             },
             created_at: {
-                allowNull: false,
+                allowNull: true,
                 type: Sequelize.DATE
             },
             updated_at: {
-                allowNull: false,
+                allowNull: true,
                 type: Sequelize.DATE
             },
             // facility_id: {

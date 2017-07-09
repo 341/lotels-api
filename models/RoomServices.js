@@ -1,50 +1,44 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('roomServices', {
+	return sequelize.define('RoomServices', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true,
-			field: 'id'
+			autoIncrement: true
 		},
-		createdAt: {
+		created_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'created_at'
+			allowNull: false
 		},
-		updatedAt: {
+		updated_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'updated_at'
+			allowNull: false
 		},
-		serviceId: {
+		service_id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true,
 			references: {
 				model: 'Services',
 				key: 'id'
-			},
-			field: 'service_id'
+			}
 		},
-		reservationId: {
+		reservation_id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true,
 			references: {
 				model: 'Reservations',
 				key: 'id'
-			},
-			field: 'reservation_id'
+			}
 		},
-		roomId: {
+		room_id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true,
 			references: {
 				model: 'Rooms',
 				key: 'id'
-			},
-			field: 'room_id'
+			}
 		}
 	}, {
 		tableName: 'RoomServices'

@@ -9,14 +9,14 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            created_at: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
-            updated_at: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
+            // created_at: {
+            //     allowNull: false,
+            //     type: Sequelize.DATE
+            // },
+            // updated_at: {
+            //     allowNull: false,
+            //     type: Sequelize.DATE
+            // },
             type_id: {
                 type: Sequelize.INTEGER,
                 onUpdate: 'cascade',
@@ -46,6 +46,8 @@ module.exports = {
                     key: 'id'
                 }
             }
+        },{
+            timestamps: true
         });
     },
 

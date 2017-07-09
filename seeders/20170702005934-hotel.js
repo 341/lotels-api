@@ -9,7 +9,6 @@ module.exports = {
          Return a promise to correctly handle asynchronicity.
 
          Example:
-         */
         return queryInterface.bulkInsert('hotels', [
             {
                 name: faker.company.companyName() ,
@@ -28,6 +27,7 @@ module.exports = {
                 email: faker.internet.email()
             }
         ], {});
+         */
     },
 
     down: function (queryInterface, Sequelize) {
@@ -36,7 +36,7 @@ module.exports = {
          Return a promise to correctly handle asynchronicity.
 
          Example:
-         */
          return queryInterface.bulkDelete('hotels', null, {});
+         */
     }
 };

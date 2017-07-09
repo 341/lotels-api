@@ -1,57 +1,48 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('customers', {
+	return sequelize.define('Customers', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true,
-			field: 'id'
+			autoIncrement: true
 		},
-		streetAddress: {
+		street_address: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'street_address'
+			allowNull: true
 		},
 		city: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'city'
+			allowNull: true
 		},
-		zipCode: {
+		zip_code: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'zip_code'
+			allowNull: true
 		},
 		country: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'country'
+			allowNull: true
 		},
 		birthday: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'birthday'
+			allowNull: false
 		},
-		createdAt: {
+		created_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'created_at'
+			allowNull: false
 		},
-		updatedAt: {
+		updated_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'updated_at'
+			allowNull: false
 		},
-		userId: {
+		user_id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true,
 			references: {
 				model: 'Users',
 				key: 'id'
-			},
-			field: 'user_id'
+			}
 		}
 	}, {
 		tableName: 'Customers'

@@ -1,50 +1,44 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('rooms', {
+	return sequelize.define('Rooms', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true,
-			field: 'id'
+			autoIncrement: true
 		},
-		createdAt: {
+		created_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'created_at'
+			allowNull: false
 		},
-		updatedAt: {
+		updated_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'updated_at'
+			allowNull: false
 		},
-		typeId: {
+		type_id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			references: {
 				model: 'RoomTypes',
 				key: 'id'
-			},
-			field: 'type_id'
+			}
 		},
-		locationId: {
+		location_id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			references: {
 				model: 'FacilityLocations',
 				key: 'id'
-			},
-			field: 'location_id'
+			}
 		},
-		facilityId: {
+		facility_id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true,
 			references: {
 				model: 'Facilities',
 				key: 'id'
-			},
-			field: 'facility_id'
+			}
 		}
 	}, {
 		tableName: 'Rooms'

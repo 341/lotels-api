@@ -1,44 +1,37 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('services', {
+	return sequelize.define('Services', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true,
-			field: 'id'
+			autoIncrement: true
 		},
 		name: {
 			type: DataTypes.STRING(255),
 			allowNull: true,
-			unique: true,
-			field: 'name'
+			unique: true
 		},
 		description: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'description'
+			allowNull: true
 		},
 		type: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'type'
+			allowNull: true
 		},
 		price: {
 			type: DataTypes.STRING(255),
-			allowNull: true,
-			field: 'price'
+			allowNull: true
 		},
-		createdAt: {
+		created_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'created_at'
+			allowNull: false
 		},
-		updatedAt: {
+		updated_at: {
 			type: DataTypes.DATE,
-			allowNull: false,
-			field: 'updated_at'
+			allowNull: false
 		}
 	}, {
 		tableName: 'Services'
